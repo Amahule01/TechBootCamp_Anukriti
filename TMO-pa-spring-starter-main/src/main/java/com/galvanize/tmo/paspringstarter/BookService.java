@@ -27,9 +27,12 @@ public class BookService {
 	       
 	}
 
-	public List<Book> read() {
-		
-		return repository.values().stream().collect(Collectors.toList());
+	public Map<String, List<Book>> read() {
+		List<Book> bookList = new ArrayList<Book>();
+		bookList = repository.values().stream().collect(Collectors.toList());
+		Map<String,List<Book>> bookMap= new HashMap<String,List<Book>>();
+		bookMap.put("books", bookList);
+		return bookMap;
 	}
 
 	public void delete() {
