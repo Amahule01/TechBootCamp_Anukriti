@@ -24,8 +24,8 @@ public class LibraryController {
 
     }
     
-	@GetMapping("/api/Books")
-    public List<Book> read(){
+    @GetMapping("/api/Books")
+    public Map<String, List<Book>> read(){
         return service.read();
     }
 
