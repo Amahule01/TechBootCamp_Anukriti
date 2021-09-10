@@ -37,5 +37,21 @@ class PaSpringStarterApplicationTests {
 				.andExpect(MockMvcResultMatchers.jsonPath("$.title").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.yearPublished").exists());
 	}
+
+	@Test
+	void postBook() throws Exception {
+		mockMvc.perform(post("/api/Books"))
+				.andExpect(status().isCreated())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.id").exists())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.author").exists())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.title").exists())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.yearPublished").exists());
+	}
+	
+	@Test
+	void deleteBook() throws Exception {
+		mockMvc.perform(delete("/api/Books"))
+		.andExpect(status().isAccepted());
+	}
 	
 }
