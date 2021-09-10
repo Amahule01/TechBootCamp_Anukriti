@@ -25,4 +25,17 @@ class PaSpringStarterApplicationTests {
 		mockMvc.perform(get("/health"))
 				.andExpect(status().isOk());
 	}
+				.andExpect(status().isOk());
+	}
+	
+	@Test
+	void getBook() throws Exception {
+		mockMvc.perform(get("/api/Books"))
+				.andExpect(status().isOk())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.id").exists())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.author").exists())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.title").exists())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.yearPublished").exists());
+	}
+	
 }
