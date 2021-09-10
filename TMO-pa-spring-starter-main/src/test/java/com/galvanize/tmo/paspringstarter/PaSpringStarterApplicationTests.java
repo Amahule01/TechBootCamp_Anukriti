@@ -30,7 +30,7 @@ class PaSpringStarterApplicationTests {
 	
 	@Test
 	void getBook() throws Exception {
-		mockMvc.perform(get("/api/Books"))
+		mockMvc.perform(get("/api/books"))
 				.andExpect(status().isOk())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.id").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.author").exists())
@@ -40,7 +40,7 @@ class PaSpringStarterApplicationTests {
 
 	@Test
 	void postBook() throws Exception {
-		mockMvc.perform(post("/api/Books"))
+		mockMvc.perform(post("/api/books"))
 				.andExpect(status().isCreated())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.id").exists())
 				.andExpect(MockMvcResultMatchers.jsonPath("$.author").exists())
@@ -50,7 +50,7 @@ class PaSpringStarterApplicationTests {
 	
 	@Test
 	void deleteBook() throws Exception {
-		mockMvc.perform(delete("/api/Books"))
+		mockMvc.perform(delete("/api/books"))
 		.andExpect(status().isAccepted());
 	}
 	
