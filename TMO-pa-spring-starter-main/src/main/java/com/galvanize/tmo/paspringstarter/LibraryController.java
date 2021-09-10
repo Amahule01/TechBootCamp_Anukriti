@@ -26,12 +26,12 @@ public class LibraryController {
 
     }
     
-    @GetMapping("/api/Books")
+    @GetMapping("/api/books")
     public Map<String, List<Book>> read(){
         return service.read();
     }
 
-    @PostMapping("/api/Books")
+    @PostMapping("/api/books")
     public ResponseEntity<Book> create(@RequestBody Book book) throws URISyntaxException {
         Book createdBook = service.createBook(book);
 
@@ -45,7 +45,7 @@ public class LibraryController {
     }
 	
 
-    @DeleteMapping("/api/Books")
+    @DeleteMapping("/api/books")
     public ResponseEntity<Object> deleteStudent() {
         service.delete();
 
